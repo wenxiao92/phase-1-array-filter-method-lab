@@ -1,19 +1,30 @@
 // Code your solution here
-//function findMatching(names) {
-//    if(names.equalsIgnoreCase('bobby') === true) {
-//        return names;
-//    } else {
-//        return []
-//    }
-//}
-
-function findMatching(array, names) {
+function findMatching(array, singleName) {
     let newArray = []
-    for (const drivers of array) {
-        if(drivers === names) {
-            return newArray.push(names)
-        } else {
-            return []
+    for (const driver of array) {
+        if(driver.toUpperCase() === singleName.toUpperCase()) {
+            newArray.push(driver)
         }
     }
+    return newArray
+}
+
+function fuzzyMatch(array, initials) {
+    let newArray = []
+    for (const driver of array) {
+        if(driver.substring(0,2) === initials.substring(0,2)) {
+            newArray.push(driver)
+        }
+    }
+    return newArray
+}
+
+function matchName(array, nameMatch) {
+    let newArray = []
+    for (const nameHomeObj of array) {
+        if(nameHomeObj.name === nameMatch) {
+            newArray.push(nameHomeObj)
+        }
+    }
+    return newArray
 }
